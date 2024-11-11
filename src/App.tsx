@@ -1,12 +1,30 @@
-import SideBar from "./components/SideBar";
-import Navbar from "./components/Navbar";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Table from "./pages/Table";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import { useEffect } from "react";
 
 function App() {
+   const token = localStorage.getItem("token");
+   const navigate = useNavigate();
+
+   useEffect(() => {
+      if (token && token.length > 0) {
+         navigate("/home");
+      } else {
+         navigate("/");
+      }
+   }, [navigate, token]);
+
    return (
-      <div className="flex">
-         <SideBar />
-         <Navbar />
-      </div>
+      <>
+         <ToastContainer />
+         <Routes>
+            <Route element={<LoginPage />} path="/" />
+            <Route element={<Table />} path="/home" />
+         </Routes>
+      </>
    );
 }
 
