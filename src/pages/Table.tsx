@@ -11,4 +11,6 @@ export default function Table() {
          .then((data) => setTable(data));
       console.log(table);
    }, [table]);
+
+   return <div></div>;
 }
