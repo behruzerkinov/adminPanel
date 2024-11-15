@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-// import HomePage from "./HomePage";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {

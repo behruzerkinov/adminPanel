@@ -4,6 +4,7 @@ import Table from "./pages/Table";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import { useEffect } from "react";
+import HomePage from "./pages/HomePage";
 
 function App() {
    const token = localStorage.getItem("token");
@@ -22,7 +23,8 @@ function App() {
          <ToastContainer />
          <Routes>
             <Route element={<LoginPage />} path="/" />
-            <Route element={<Table />} path="/home" />
+            <Route element={<HomePage />} path="/home" />
+            <Route element={<HomePage />} path="/categorie" />
          </Routes>
       </>
    );
